@@ -15,7 +15,6 @@ paper.install(window);
 
 
 		var tool = new Tool();
-		// tool.onMouseDown = onMouseDown;
 		var counter = 0;
 
 		tool.minDistance = 6;
@@ -70,12 +69,8 @@ paper.install(window);
 
 		tool.onMouseMove = function(event) {
 			myPath.add(event.point);
-			console.log("event.delta.length: ", event.delta.length);
 			counter++;
 			if(counter % 40 === 0) {
-				console.log("counter in %50", counter);
-				console.log("event point", event.point);
-				console.log("epx+", event.point, event.point.x, event.point.x + 5 * event.delta.length);
 
 				var xPoint = event.point.x + 3 * event.delta.length,
 					yPoint = event.point.y + 3 * event.delta.length;
@@ -138,12 +133,9 @@ paper.install(window);
 					} else {
 						radius = myPath.strokeWidth/2;
 					}
-					console.log("circle event point on width change", event.point);
 					var circle = new Path.Circle(event.point, radius);
 					circle.fillColor = myPath.strokeColor;
 				}
-				// myPath.fullySelected = true;
-				// myPath.smooth({ type: 'catmull-rom', factor: 0.5 });
 				var arr = myPath._segments;
 				for(var i = 0; i < arr.length - 1; i++) {
 					myPath.smooth({ type: 'continuous', 
@@ -151,12 +143,8 @@ paper.install(window);
 								to: arr[i + 1]
 					});
 				}
-				console.log("strokeW & myPath.strokeWidth: ", strokeW, myPath.strokeWidth);
 
 			}
-			// console.log("event", event);
-			// console.log("event.delta: ", event.delta);
-			// console.log("event.count", event.count);
 
 
 		};
