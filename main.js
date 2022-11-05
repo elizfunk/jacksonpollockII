@@ -22,10 +22,7 @@ window.onload = function() {
     if(eventDeltaLength >= 100) {
       return 1;
     }
-    if(eventDeltaLength > 89 && eventDeltaLength < 100) {
-      return 2;
-    }
-    if(eventDeltaLength > 79 && eventDeltaLength < 90) {
+    if(eventDeltaLength > 79 && eventDeltaLength < 100) {
       return 2;
     }
     if(eventDeltaLength > 59 && eventDeltaLength < 80) {
